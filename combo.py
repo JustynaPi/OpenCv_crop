@@ -3,7 +3,7 @@ import cv2
 
 def create_dilation_output():
 
-    img = cv2.imread('faktura.png', cv2.IMREAD_GRAYSCALE) # konwertuje na b&w
+    img = cv2.imread('image.png', cv2.IMREAD_GRAYSCALE) # konwertuje na b&w
     rows, cols = img.shape
     canny = cv2.Canny(img, 50, 240)
     kernel = np.ones((5,5), np.int)
@@ -21,7 +21,7 @@ create_dilation_output()
 dilation_output = create_dilation_output()
 
 
-img = cv2.imread('faktura.png')
+img = cv2.imread('image.png')
 im = cv2.imread('dilatedOutput.png')
 imgray = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
 ret,thresh = cv2.threshold(imgray, 127,255,0)
@@ -40,6 +40,6 @@ for cnt in contours:
 cv2.imshow('im',img)
 cv2.waitKey()
 
-#TODO: dilated image should be a mask- bounding boxes should be mapped to origilal invoice img.
+
 
 
